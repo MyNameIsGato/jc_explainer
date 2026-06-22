@@ -4,7 +4,7 @@
   <img alt="Jupiter Coast Logo" src="JupiterCoastHalf.png" />
 </p>
 
-_JC Explainer_ is an add-on for Godot 4.4+ which provides a moderately opinionated conditional UI pop-up system, aimed at streamlining tutorial creation.
+_JC Explainer_ is an add-on for Godot 4.5+ which provides a moderately opinionated conditional UI pop-up system, aimed at streamlining tutorial creation.
 
 ## Installation
 
