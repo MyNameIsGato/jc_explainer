@@ -1,6 +1,7 @@
 name: Godot CI/CD Pipeline
 
 on:
+  workflow_dispatch:
   push:
     tags: [v*, rc-*, build-*]
 
@@ -10,7 +11,7 @@ permissions:
   checks: write
 
 env:
-  GODOT_VERSION: 4.5.1
+  GODOT_VERSION: 4.4.1
   PROJECT_PATH: .
 
 jobs:
