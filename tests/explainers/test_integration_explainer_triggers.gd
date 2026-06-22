@@ -29,11 +29,11 @@ func test_check_triggered_logic() -> void:
 	assert_bool(trigger.check_triggered()).is_false()
 	
 	# Only main condition met
-	main_cond.emitted()
+	main_cond.emit()
 	assert_bool(trigger.check_triggered()).is_false()
 	
 	# All conditions met
-	opt_cond.emitted()
+	opt_cond.emit()
 	assert_bool(trigger.check_triggered()).is_true()
 	
 	# Reset main condition
@@ -52,7 +52,7 @@ func test_trigger_with_signal_only() -> void:
 	trigger.revealed.connect(func(): result["revealed"] = true)
 	
 	trigger._ready()
-	signal_condition.emitted()
+	signal_condition.emit()
 	
 	assert_bool(result["revealed"]).is_true()
 	assert_bool(trigger.visible).is_true()
@@ -74,13 +74,13 @@ func test_trigger_with_optional_conditions() -> void:
 	
 	# Main condition met but optional not met - should not show
 	assert_bool(trigger.visible).is_false()
-	main_condition.emitted()
+	main_condition.emit()
 	await get_tree().process_frame
 	assert_bool(trigger.visible).is_false()
 	
 	# All conditions met - should show
-	opt1.emitted()
-	opt2.emitted()
+	opt1.emit()
+	opt2.emit()
 	await get_tree().process_frame
 	assert_bool(trigger.visible).is_true()
 
@@ -96,13 +96,13 @@ func test_oneshot_prevents_reactivation() -> void:
 	trigger._ready()
 	
 	# First activation
-	signal_condition.emitted()
+	signal_condition.emit()
 	await get_tree().process_frame
 	assert_bool(trigger.visible).is_true()
 	
 	# Conceal and try to activate again
 	trigger.conceal()
-	signal_condition.emitted()
+	signal_condition.emit()
 	await get_tree().process_frame
 	assert_bool(trigger.visible).is_false()  # Should not show again
 
@@ -120,7 +120,7 @@ func test_multiple_explainers_sequence() -> void:
 	trigger.add_child(explainer2)
 	
 	trigger._ready()
-	signal_condition.emitted()
+	signal_condition.emit()
 	await get_tree().process_frame
 	
 	# First explainer should be visible
@@ -147,7 +147,7 @@ func test_context_mapping() -> void:
 	trigger.add_child(explainer)
 	
 	trigger._ready()
-	signal_condition.emitted()
+	signal_condition.emit()
 	await get_tree().process_frame
 	
 	# The actual context would be provided by the signal emitter
@@ -164,7 +164,7 @@ func test_conceal_hides_trigger_and_emits_signal() -> void:
 	
 	trigger._ready()
 	assert_bool(trigger.visible).is_false()
-	signal_condition.emitted()
+	signal_condition.emit()
 	await get_tree().process_frame
 	assert_bool(trigger.visible).is_true()
 	
@@ -182,7 +182,7 @@ func test_activate_when_already_visible() -> void:
 	trigger.add_child(explainer)
 	
 	trigger._ready()
-	signal_condition.emitted()
+	signal_condition.emit()
 	await get_tree().process_frame
 	
 	var explainer_index_before = trigger.explainer_index

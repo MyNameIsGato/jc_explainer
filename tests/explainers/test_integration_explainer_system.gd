@@ -42,7 +42,7 @@ func test_complete_flow_with_focus_explainer() -> void:
 	trigger._ready()
 	
 	# Trigger the tutorial
-	signal_condition.emitted()
+	signal_condition.emit()
 	await get_tree().process_frame
 	
 	assert_int(result["revealed"]).is_equal(1)
@@ -81,7 +81,7 @@ func test_multiple_triggers_independent() -> void:
 	trigger2._ready()
 	
 	# Activate only trigger1
-	cond1.emitted()
+	cond1.emit()
 	await get_tree().process_frame
 	
 	assert_bool(trigger.visible).is_true()
@@ -89,7 +89,7 @@ func test_multiple_triggers_independent() -> void:
 	
 	# Activate only trigger2
 	trigger.conceal()
-	cond2.emitted()
+	cond2.emit()
 	await get_tree().process_frame
 	
 	assert_bool(trigger.visible).is_false()
