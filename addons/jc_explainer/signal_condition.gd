@@ -5,7 +5,7 @@ class_name CYSSignalCondition extends CYSTriggerCondition
 func is_met() -> bool:
 	return signal_fired
 
-func emitted() -> void:
+func emit() -> void:
 	signal_fired = true
 	met.emit()
 
