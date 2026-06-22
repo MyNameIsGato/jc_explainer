@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://txcd2rpbvam7"]
+
+[ext_resource type="Script" uid="uid://cpawb6exa3ng1" path="res://addons/jc_explainer/explainer.gd" id="1_e50oc"]
+
+[node name="Explainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_e50oc")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 71.0
+
+[node name="Text" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_top = 72.0
+offset_right = 400.0
+offset_bottom = 112.0
+mouse_filter = 2
+bbcode_enabled = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
