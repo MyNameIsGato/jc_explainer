@@ -3,9 +3,9 @@ extends GdUnitTestSuite
 class_name TestFullSystemIntegration
 
 var SCENE: PackedScene = load("res://scenes/explainer/focus_explainer.tscn")
-var TRIGGER_SCENE: PackedScene = load("res://scenes/explainer/explainer_trigger.tscn")
+var TRIGGER_SCENE: PackedScene = load("res://scenes/explainer/explainer_watcher.tscn")
 var focus_explainer: CYSFocusExplainer
-var trigger: CYSExplainerTrigger
+var trigger: CYSExplainerWatcher
 
 func before_test() -> void:
 	focus_explainer = SCENE.instantiate()

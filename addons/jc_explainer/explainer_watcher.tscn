@@ -1,18 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvhe2o8l3wyev"]
 
-[ext_resource type="Script" uid="uid://bfngje7yia1ek" path="res://addons/jc_explainer/explainer_trigger.gd" id="1_pc7h8"]
+[ext_resource type="Script" uid="uid://bfngje7yia1ek" path="res://addons/jc_explainer/explainer_watcher.gd" id="1_qom2k"]
 
-[node name="ExplainerTrigger" type="SubViewportContainer"]
+[node name="ExplainerWatcher" type="SubViewportContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-script = ExtResource("1_pc7h8")
+script = ExtResource("1_qom2k")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1920, 1080)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4

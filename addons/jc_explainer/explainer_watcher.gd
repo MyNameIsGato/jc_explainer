@@ -1,4 +1,4 @@
-class_name CYSExplainerTrigger extends SubViewportContainer
+class_name CYSExplainerWatcher extends SubViewportContainer
 
 signal revealed
 signal dismissed

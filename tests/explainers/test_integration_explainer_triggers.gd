@@ -3,9 +3,9 @@ extends GdUnitTestSuite
 class_name TestExplainerTriggerIntegration
 
 var SCENE: PackedScene = load("res://scenes/explainer/explainer.tscn")
-var TRIGGER_SCENE: PackedScene = load("res://scenes/explainer/explainer_trigger.tscn")
+var TRIGGER_SCENE: PackedScene = load("res://scenes/explainer/explainer_watcher.tscn")
 var explainer: CYSExplainer
-var trigger: CYSExplainerTrigger
+var trigger: CYSExplainerWatcher
 
 func before_test() -> void:
 	explainer = SCENE.instantiate()
