@@ -1,12 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwrjbjdleakwb"]
+[gd_scene load_steps=6 format=3 uid="uid://bwrjbjdleakwb"]
 
 [ext_resource type="PackedScene" uid="uid://txcd2rpbvam7" path="res://addons/jc_explainer/explainer.tscn" id="1_l3nhv"]
 [ext_resource type="Script" uid="uid://d1t6y0ld0q5sy" path="res://addons/jc_explainer/focus_explainer.gd" id="2_xl3wg"]
-[ext_resource type="Texture2D" path="res://resources/textures/NinePatch.png" id="3_me6c5"]
-[ext_resource type="FontFile" path="res://resources/fonts/Megrim/Megrim-Regular.ttf" id="3_w1vkp"]
-[ext_resource type="FontFile" path="res://resources/fonts/Jura/static/Jura-Regular.ttf" id="4_sq4kx"]
-[ext_resource type="FontFile" path="res://resources/fonts/Jura/static/jura-medium.ttf" id="6_rijvu"]
-[ext_resource type="FontFile" path="res://resources/fonts/Jura/static/Jura-Bold.ttf" id="7_oo0jn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me6c5"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -16,13 +11,11 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_sq4kx"]
-font = ExtResource("4_sq4kx")
 outline_size = 1
 outline_color = Color(1, 1, 1, 0.588235)
 shadow_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="LabelSettings" id="LabelSettings_me6c5"]
-font = ExtResource("3_w1vkp")
 font_size = 26
 outline_size = 2
 shadow_color = Color(1, 1, 1, 0.196078)
@@ -48,7 +41,6 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 420.0
 offset_bottom = -4.0
-texture = ExtResource("3_me6c5")
 draw_center = false
 patch_margin_left = 6
 patch_margin_top = 8
@@ -110,11 +102,9 @@ offset_bottom = 80.0
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.588235)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.588235)
-theme_override_constants/shadow_outline_size = 1
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 1
-theme_override_fonts/normal_font = ExtResource("6_rijvu")
-theme_override_fonts/bold_font = ExtResource("7_oo0jn")
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 1
 fit_content = true
 horizontal_alignment = 1
