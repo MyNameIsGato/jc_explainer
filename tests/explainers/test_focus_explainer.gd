@@ -2,7 +2,7 @@ extends GdUnitTestSuite
 
 class_name TestFocusExplainer
 
-var SCENE: PackedScene = load("res://scenes/explainer/focus_explainer.tscn")
+var SCENE: PackedScene = load("res://addons/jc_explainer/focus_explainer.tscn")
 var focus_explainer: CYSFocusExplainer
 
 func before_test() -> void:

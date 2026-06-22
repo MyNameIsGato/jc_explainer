@@ -2,8 +2,8 @@ extends GdUnitTestSuite
 
 class_name TestFullSystemIntegration
 
-var SCENE: PackedScene = load("res://scenes/explainer/focus_explainer.tscn")
-var TRIGGER_SCENE: PackedScene = load("res://scenes/explainer/explainer_watcher.tscn")
+var SCENE: PackedScene = load("res://addons/jc_explainer/focus_explainer.tscn")
+var TRIGGER_SCENE: PackedScene = load("res://addons/jc_explainer/explainer_watcher.tscn")
 var focus_explainer: CYSFocusExplainer
 var trigger: CYSExplainerWatcher
 
