@@ -71,22 +71,3 @@ jobs:
         with:
           godot-version: ${{ env.GODOT_VERSION }}
           paths: "res://tests/"
-  
-  release:
-    name: Release Build
-    runs-on: ubuntu-latest
-    needs: [version, lint, test]
-    permissions:
-        contents: write
-    env:
-      FILE_NAME: ${{ github.event.repository.name }}-${{ needs.version.outputs.version }}.zip
-    steps:
-      - uses: actions/upload-artifact@v7
-        with:
-          name: $FILE_NAME.zip
-          path: addons/
-          overwrite: true
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "$FILE_NAME.zip"
-          generateReleaseNotes: true
