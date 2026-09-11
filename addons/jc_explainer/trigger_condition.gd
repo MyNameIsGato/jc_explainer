@@ -1,4 +1,4 @@
-class_name CYSTriggerCondition extends Resource
+class_name TriggerCondition extends Resource
 
 signal met
 

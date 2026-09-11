@@ -3,7 +3,7 @@ extends GdUnitTestSuite
 class_name TestFocusExplainer
 
 var SCENE: PackedScene = load("res://addons/jc_explainer/focus_explainer.tscn")
-var focus_explainer: CYSFocusExplainer
+var focus_explainer: FocusExplainer
 
 func before_test() -> void:
 	focus_explainer = SCENE.instantiate()
@@ -43,6 +43,6 @@ func test_conceal_emits_dismissed_after_tween() -> void:
 	focus_explainer.conceal()
 	
 	# Wait for tween to complete
-	await get_tree().create_timer(CYSFocusExplainer.TWEEN_LENGTH + 0.05).timeout
+	await get_tree().create_timer(FocusExplainer.TWEEN_LENGTH + 0.05).timeout
 	assert_bool(received["signal"]).is_true()
 	assert_bool(focus_explainer.visible).is_false()

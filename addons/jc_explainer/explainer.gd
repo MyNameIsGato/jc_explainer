@@ -1,4 +1,4 @@
-class_name CYSExplainer extends Control
+class_name Explainer extends Control
 
 signal dismissed
 

@@ -3,12 +3,12 @@ extends GdUnitTestSuite
 class_name TestSignalCondition
 
 func test_initial_state() -> void:
-	var condition = CYSSignalCondition.new()
+	var condition = SignalCondition.new()
 	assert_bool(condition.is_met()).is_false()
 	assert_bool(condition.signal_fired).is_false()
 
 func test_emit() -> void:
-	var condition = CYSSignalCondition.new()
+	var condition = SignalCondition.new()
 	var received = {"signal": false}
 	condition.met.connect(func(): received["signal"] = true)
 	
@@ -19,7 +19,7 @@ func test_emit() -> void:
 	assert_bool(received["signal"]).is_true()
 
 func test_cancel() -> void:
-	var condition = CYSSignalCondition.new()
+	var condition = SignalCondition.new()
 	condition.emit()
 	assert_bool(condition.is_met()).is_true()
 	
@@ -28,7 +28,7 @@ func test_cancel() -> void:
 	assert_bool(condition.signal_fired).is_false()
 
 func test_reset() -> void:
-	var condition = CYSSignalCondition.new()
+	var condition = SignalCondition.new()
 	condition.emit()
 	assert_bool(condition.is_met()).is_true()
 	
@@ -37,7 +37,7 @@ func test_reset() -> void:
 	assert_bool(condition.signal_fired).is_false()
 
 func test_multiple_emissions() -> void:
-	var condition = CYSSignalCondition.new()
+	var condition = SignalCondition.new()
 	var received = {"emitted": 0}
 	condition.met.connect(func(): received["emitted"] += 1)
 	

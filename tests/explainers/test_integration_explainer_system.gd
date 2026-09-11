@@ -4,8 +4,8 @@ class_name TestFullSystemIntegration
 
 var SCENE: PackedScene = load("res://addons/jc_explainer/focus_explainer.tscn")
 var TRIGGER_SCENE: PackedScene = load("res://addons/jc_explainer/explainer_watcher.tscn")
-var focus_explainer: CYSFocusExplainer
-var trigger: CYSExplainerWatcher
+var focus_explainer: FocusExplainer
+var trigger: ExplainerWatcher
 
 func before_test() -> void:
 	focus_explainer = SCENE.instantiate()
@@ -20,7 +20,7 @@ func after_test() -> void:
 
 func test_complete_flow_with_focus_explainer() -> void:
 	# Setup the full system
-	var signal_condition = CYSSignalCondition.new()
+	var signal_condition = SignalCondition.new()
 	trigger.signal_condition = signal_condition
 	
 	# Create a focus explainer (mock the locator)
@@ -62,8 +62,8 @@ func test_multiple_triggers_independent() -> void:
 	focus_explainer.locator = auto_free(Marker2D.new())
 	focus_explainer2.locator = auto_free(Marker2D.new())
 	
-	var cond1 = CYSSignalCondition.new()
-	var cond2 = CYSSignalCondition.new()
+	var cond1 = SignalCondition.new()
+	var cond2 = SignalCondition.new()
 	
 	trigger.signal_condition = cond1
 	trigger2.signal_condition = cond2

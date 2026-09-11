@@ -3,7 +3,7 @@ extends GdUnitTestSuite
 class_name TestExplainer
 
 var SCENE: PackedScene = load("res://addons/jc_explainer/explainer.tscn")
-var explainer: CYSExplainer
+var explainer: Explainer
 
 func before_test() -> void:
 	explainer = SCENE.instantiate()

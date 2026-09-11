@@ -1,4 +1,4 @@
-class_name CYSFocusExplainer extends CYSExplainer
+class_name FocusExplainer extends Explainer
 
 const TWEEN_LENGTH = 0.2
 

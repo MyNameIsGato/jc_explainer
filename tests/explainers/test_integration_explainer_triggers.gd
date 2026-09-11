@@ -4,8 +4,8 @@ class_name TestExplainerTriggerIntegration
 
 var SCENE: PackedScene = load("res://addons/jc_explainer/explainer.tscn")
 var TRIGGER_SCENE: PackedScene = load("res://addons/jc_explainer/explainer_watcher.tscn")
-var explainer: CYSExplainer
-var trigger: CYSExplainerWatcher
+var explainer: Explainer
+var trigger: ExplainerWatcher
 
 func before_test() -> void:
 	explainer = SCENE.instantiate()
@@ -19,8 +19,8 @@ func after_test() -> void:
 	trigger.free()
 
 func test_check_triggered_logic() -> void:
-	var main_cond = CYSSignalCondition.new()
-	var opt_cond = CYSSignalCondition.new()
+	var main_cond = SignalCondition.new()
+	var opt_cond = SignalCondition.new()
 	
 	trigger.signal_condition = main_cond
 	trigger.optional_conditions = [opt_cond]
@@ -41,7 +41,7 @@ func test_check_triggered_logic() -> void:
 	assert_bool(trigger.check_triggered()).is_false()
 
 func test_trigger_with_signal_only() -> void:
-	var signal_condition = CYSSignalCondition.new()
+	var signal_condition = SignalCondition.new()
 	trigger.signal_condition = signal_condition
 	
 	explainer.title = "Test"
@@ -59,9 +59,9 @@ func test_trigger_with_signal_only() -> void:
 	assert_bool(explainer.visible).is_true()
 
 func test_trigger_with_optional_conditions() -> void:
-	var main_condition = CYSSignalCondition.new()
-	var opt1 = CYSSignalCondition.new()
-	var opt2 = CYSSignalCondition.new()
+	var main_condition = SignalCondition.new()
+	var opt1 = SignalCondition.new()
+	var opt2 = SignalCondition.new()
 	
 	trigger.signal_condition = main_condition
 	trigger.optional_conditions = [opt1, opt2]
@@ -86,7 +86,7 @@ func test_trigger_with_optional_conditions() -> void:
 
 func test_oneshot_prevents_reactivation() -> void:
 	trigger.oneshot = true
-	var signal_condition = CYSSignalCondition.new()
+	var signal_condition = SignalCondition.new()
 	trigger.signal_condition = signal_condition
 	
 	explainer.title = "Test"
@@ -107,7 +107,7 @@ func test_oneshot_prevents_reactivation() -> void:
 	assert_bool(trigger.visible).is_false()  # Should not show again
 
 func test_multiple_explainers_sequence() -> void:
-	var signal_condition = CYSSignalCondition.new()
+	var signal_condition = SignalCondition.new()
 	trigger.signal_condition = signal_condition
 	
 	explainer.title = "First"
@@ -136,7 +136,7 @@ func test_multiple_explainers_sequence() -> void:
 	explainer2.free()
 
 func test_context_mapping() -> void:
-	var signal_condition = CYSSignalCondition.new()
+	var signal_condition = SignalCondition.new()
 	trigger.signal_condition = signal_condition
 	trigger.context_mapping = {
 		"player_name": "player_nickname"
@@ -155,7 +155,7 @@ func test_context_mapping() -> void:
 	assert_object(trigger.context_mapping).is_not_null()
 
 func test_conceal_hides_trigger_and_emits_signal() -> void:
-	var signal_condition = CYSSignalCondition.new()
+	var signal_condition = SignalCondition.new()
 	trigger.signal_condition = signal_condition
 	
 	var result = {"dismissed": false}
@@ -173,7 +173,7 @@ func test_conceal_hides_trigger_and_emits_signal() -> void:
 	assert_bool(result["dismissed"]).is_true()
 
 func test_activate_when_already_visible() -> void:
-	var signal_condition = CYSSignalCondition.new()
+	var signal_condition = SignalCondition.new()
 	trigger.signal_condition = signal_condition
 	trigger.oneshot = false
 	

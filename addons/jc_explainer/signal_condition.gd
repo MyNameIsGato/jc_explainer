@@ -1,4 +1,4 @@
-class_name CYSSignalCondition extends CYSTriggerCondition
+class_name SignalCondition extends TriggerCondition
 
 @export var signal_fired: bool = false
 
